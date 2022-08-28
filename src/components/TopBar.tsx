@@ -3,7 +3,7 @@ import { ColorContext } from "../context/ColorContext";
 import isHexAcceptedValue from "../helpers/isHexAcceptedValue";
 
 const TopBar = () => {
-  const { colorsGroup, setColorsGroup } = useContext(ColorContext);
+  const { color, setColor } = useContext(ColorContext);
   const [lateralCard, setLateralCard] = useState(false);
 
   const handleChange = (e: any) => {
@@ -11,7 +11,7 @@ const TopBar = () => {
 
     if (isHexAcceptedValue(stringInput[stringInput.length - 1])) {
       if (stringInput.length < 7) {
-        setColorsGroup(`#${stringInput}`);
+        setColor(stringInput);
         e.target.value = stringInput;
       }
       if (
@@ -39,6 +39,7 @@ const TopBar = () => {
             maxLength={6}
             name="colors"
             placeholder="000000"
+          
           />
         </label>
       </div>
@@ -46,7 +47,7 @@ const TopBar = () => {
         <div
           className="rounded-full"
           style={{
-            backgroundColor: colorsGroup,
+            backgroundColor: `#${color}`,
             width: "64px",
             height: "64px",
           }}
