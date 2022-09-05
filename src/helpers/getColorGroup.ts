@@ -1,27 +1,11 @@
 import { isAlphaOrNumb } from "./isAlphaOrNumb";
 
-const LIMIT: number = 10;
-
 export function getColorGroup(color: string): string[] {
   let finalStringArray: string[] = [color];
   let newColor: string = "";
   let prevColor: string = color;
 
-  //   if (color.length === 3) {
-  //     let splitedString: string[] = [color[0] + color[1], color[2]];
-  //   } else if (color.length === 4) {
-  //     let splitedString: string[] = [color[0] + color[1], color[2] + color[3]];
-  //   } else
   if (color.length === 6) {
-    let splitedString: string[] = [
-      color[0],
-      color[1],
-      color[2],
-      color[3],
-      color[4],
-      color[5],
-    ];
-
     for (let x = 0; x < 2; x++) {
       for (let y = 0; y < prevColor.length; y++) {
         switch (isAlphaOrNumb(prevColor[y])) {

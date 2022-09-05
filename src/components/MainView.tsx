@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useMemo, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import { ColorContext } from "../context/ColorContext";
 import { getColorGroup } from "../helpers/getColorGroup";
 
@@ -6,14 +6,14 @@ const MainView = () => {
   //Context
   const { color } = useContext(ColorContext);
 
-  //CallBacks
+  //MemoValue
   const getColorMemo: string[] = useMemo(() => getColorGroup(color), [color]);
 
   //States
   const [colorsCard, setColorsCard] = useState(getColorMemo);
 
   useEffect(() => {
-    setColorsCard(getColorGroup(color));
+    setColorsCard(getColorMemo);
   }, [color]);
 
   return (
